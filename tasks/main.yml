@@ -16,7 +16,7 @@
 
 - name: install missing packackage on fedoras
   action: "{{ ansible_pkg_mgr }} state=installed name=python-firewall"
-  #when:  ( ansible_distribution == "Fedora" )
+  when:  ( ansible_distribution == "Fedora" )
 
 - name: start firewall
   service: name=firewalld enabled=yes state=started
