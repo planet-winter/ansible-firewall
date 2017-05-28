@@ -7,7 +7,6 @@
   apt_repository:
     repo: "{{item}}"
   register: multiverse_installed
-  update_cache: true
   when: ansible_distribution == 'Ubuntu'
   with_items:
     - 'deb http://archive.ubuntu.com/ubuntu {{ansible_distribution_release}} universe'
