@@ -3,6 +3,15 @@
 # run this role before using firewalld
 #  to avoid issue https://github.com/ansible/ansible-modules-extras/issues/128
 
+- name: install universe repository for firewalld
+  apt_repository:
+    repo: "{{item}}"
+  register: multiverse_installed
+  update_cache: true
+  when: ansible_distribution == 'Ubuntu'
+  with_items:
+    - 'deb http://archive.ubuntu.com/ubuntu {{ansible_distribution_release}} universe'
+
 - name: install firewalld
   action: "{{ ansible_pkg_mgr }} state=installed name=firewalld"
 
