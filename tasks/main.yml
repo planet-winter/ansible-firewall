@@ -20,3 +20,6 @@
 
 - name: start firewall
   service: name=firewalld enabled=yes state=started
+
+- name: ensure ssh port is always open
+  firewalld: service=ssh permanent=true state=enabled immediate=true zone=public
