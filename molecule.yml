@@ -9,7 +9,6 @@ driver:
         image: planetw/docker-centos7-ansible
         image_version: latest
         privileged: True
-        # anti DBUS error
         required: True
 verifier:
   name: testinfra
