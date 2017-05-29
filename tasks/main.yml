@@ -20,4 +20,3 @@
 
 - name: start firewall
   service: name=firewalld enabled=yes state=started
-
