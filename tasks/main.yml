@@ -7,14 +7,14 @@
   include_vars: "{{ item }}"
   with_first_found:
     - files:
-    - "{{ ansible_distribution|lower }}-{{ ansible_distribution_version }}.yml"
-    - "{{ ansible_distribution|lower }}-{{ ansible_distribution_release }}.yml"
-    - "{{ ansible_distribution|lower }}-{{ ansible_distribution_major_version }}.yml"
-    - "{{ ansible_distribution|lower }}.yml"
-    - "{{ ansible_os_family|lower }}.yml"
-    - defaults.yml
-  paths:
-    - ../vars
+        - "{{ ansible_distribution|lower }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution|lower }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution|lower }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution|lower }}.yml"
+        - "{{ ansible_os_family|lower }}.yml"
+        - defaults.yml
+      paths:
+        - ../vars
 
 - include: fedora-install.yml
   when: ( ansible_distribution|lower == fedora and ansible_distribution_version == 25 ) 
