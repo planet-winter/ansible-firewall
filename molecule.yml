@@ -11,6 +11,5 @@ docker:
       privileged: True
       required: True
 verifier:
-  name: testinfra
-                    
+  name: testinfra            
                                     
