@@ -15,5 +15,3 @@ docker:
       image_version: latest
       privileged: True
       required: True
-verifier:
-  name: testinfra
