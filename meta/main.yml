@@ -2,7 +2,7 @@ galaxy_info:
   author: Daniel Winter
   description: install and set up firewalld
 
-  license: MIT
+  license: (MIT)
 
   min_ansible_version: 1.2
   
