@@ -15,7 +15,8 @@
         - defaults.yml
       paths:
         - ../vars
-
+      skip: True
+      
 - include: fedora-install.yml
   when: ( ansible_distribution|lower == fedora and ansible_distribution_version == 25 ) 
 
