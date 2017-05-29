@@ -3,13 +3,13 @@ dependency:
   name: galaxy
 driver:
   name: docker
-  docker:
-    containers:
-      - name: centos7
-        image: planetw/docker-centos7-ansible
-        image_version: latest
-        privileged: True
-        required: True
+docker:
+  containers:
+    - name: centos7
+      image: planetw/docker-centos7-ansible
+      image_version: latest
+      privileged: True
+      required: True
 verifier:
   name: testinfra
                     
