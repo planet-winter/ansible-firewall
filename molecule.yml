@@ -10,5 +10,10 @@ docker:
       image_version: latest
       privileged: True
       required: True
+    - name: ubuntu 16.04
+      image: planetw/docker-ubuntu1604-ansible
+      image_version: latest
+      privileged: True
+      required: True
 verifier:
   name: testinfra
