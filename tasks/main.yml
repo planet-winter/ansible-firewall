@@ -18,10 +18,10 @@
       skip: True
       
 - include: ubuntu-install.yml
-  when: ( ansible_distribution|lower == ubuntu )
+  when: ( ansible_distribution|lower == 'ubuntu' )
     
 - include: fedora-install.yml
-  when: ( ansible_distribution|lower == fedora and ansible_distribution_version == 25 ) 
+  when: ( ansible_distribution|lower == 'fedora' and ansible_distribution_version == '25' ) 
 
 - name: install firewalld
   action: "{{ ansible_pkg_mgr }} state=installed name=firewalld"
