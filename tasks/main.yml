@@ -3,20 +3,24 @@
 # run this role before using firewalld
 #  to avoid issue https://github.com/ansible/ansible-modules-extras/issues/128
 
-- name: install universe repository for firewalld
-  apt_repository:
-    repo: "{{item}}"
-  register: multiverse_installed
-  when: ansible_distribution == 'Ubuntu'
-  with_items:
-    - 'deb http://archive.ubuntu.com/ubuntu {{ansible_distribution_release}} universe'
+- name: gather os specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+    - "{{ ansible_distribution|lower }}-{{ ansible_distribution_version }}.yml"
+    - "{{ ansible_distribution|lower }}-{{ ansible_distribution_release }}.yml"
+    - "{{ ansible_distribution|lower }}-{{ ansible_distribution_major_version }}.yml"
+    - "{{ ansible_distribution|lower }}.yml"
+    - "{{ ansible_os_family|lower }}.yml"
+    - defaults.yml
+  paths:
+    - ../vars
+
+- include: fedora-install.yml
+  when: ( ansible_distribution|lower == fedora and ansible_distribution_version == 25 ) 
 
 - name: install firewalld
   action: "{{ ansible_pkg_mgr }} state=installed name=firewalld"
-
-- name: install missing packackage on fedoras
-  action: "{{ ansible_pkg_mgr }} state=installed name=python-firewall"
-  when:  ( ansible_distribution == "Fedora" )
 
 - name: start firewall
   service: name=firewalld enabled=yes state=started
