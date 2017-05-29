@@ -17,6 +17,9 @@
         - ../vars
       skip: True
       
+- include: ubuntu-install.yml
+  when: ( ansible_distribution|lower == ubuntu )
+    
 - include: fedora-install.yml
   when: ( ansible_distribution|lower == fedora and ansible_distribution_version == 25 ) 
 
