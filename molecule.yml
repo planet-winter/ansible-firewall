@@ -11,12 +11,13 @@ docker:
       privileged: True
       required: True
     - name: ubuntu16.04
-      image: solita/ubuntu-systemd
+      image: planetw/docker-ubuntu1604-ansible
       image_version: latest
       privileged: True
       required: True
-    - name: fedora25
-      image: fedora/systemd-systemd
-      image_version: latest
-      privileged: True
-      required: True
+# TODO: throws systemd related errors
+#    - name: fedora25
+#      image: fedora/systemd-systemd
+#      image_version: latest
+#      privileged: True
+#      required: True
