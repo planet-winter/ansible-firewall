@@ -11,7 +11,7 @@ docker:
       privileged: True
       required: True
     - name: ubuntu16.04
-      image: planetw/docker-ubuntu1604-ansible
+      image: solita/ubuntu-systemd
       image_version: latest
       privileged: True
       required: True
