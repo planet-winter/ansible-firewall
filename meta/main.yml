@@ -19,7 +19,7 @@ galaxy_info:
     - name: Fedora
       versions:
         - 25
-        
+
   galaxy_tags:
     - planet-winter
     - firewall
